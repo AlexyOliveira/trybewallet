@@ -1,0 +1,46 @@
+.header {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#total {
+    display: flex;
+   width: 250px;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.totalText {
+    font-family: 'Epilogue';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 14px;
+
+color: #003BE5;
+
+}
+
+.totalReturned {
+    font-family: 'Epilogue';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 14px;
+margin-left: 5px;
+color: #2453e1;
+
+}
+
+.brl {
+    font-size: 20px;
+    margin-left: 5px;
+    color: #2453e1;
+}
+
+.user img {
+    margin-right: 5px;
+}

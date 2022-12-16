@@ -1,0 +1,21 @@
+#walletAndHeader {
+    background-color: white;
+    
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius:  10px;
+    box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+    width: 80%;
+    margin: 0 auto 0 auto;
+    z-index: 2;
+   height: auto;
+    position: relative;
+   padding-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+    #walletAndHeader {
+        
+        width: auto;
+    
+    }
+}

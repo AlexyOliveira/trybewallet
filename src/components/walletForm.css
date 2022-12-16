@@ -1,0 +1,49 @@
+.walletFormMain {
+    font-family: 'Epilogue';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 14px;
+display: flex;
+align-items: center;
+color: #003BE5;
+height: auto;
+}
+
+.walletFormMain form {
+   text-align: center;
+  height: auto;
+}
+
+.walletFormMain select {
+    color: #003BE5;
+}
+
+.walletFormMain input, select {
+    width: 288.86px;
+height: 30px;
+left: 403.14px;
+top: 179px;
+margin: 10px;
+border: 1px solid #003BE5;
+border-radius: 5px;
+}
+
+.walletFormMain label {
+  margin-left: 10px;
+}
+
+.formBG {
+  background: rgba(225, 229, 235, 0.49);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.addexpense {
+  width: 300px;
+  font-family: 'Epilogue';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+color: blue;
+text-align: center;}

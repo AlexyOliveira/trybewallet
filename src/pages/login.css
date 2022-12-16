@@ -1,0 +1,54 @@
+
+body {
+     background-color: #00ffa2;
+  background-image: url("../images/foto\ fundo.png");
+}
+
+.mainContainer {
+ 
+  
+  height: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  position: absolute;
+  width: 525px;
+  height: 356px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: inset 0px 0px 20px 7px rgba(11, 11, 11, 0.3);
+  border-radius: 10px;
+}
+
+.formContainer form {
+  width: 330px;
+  height: 140px;
+  left: 475px;
+  top: 360px;
+}
+
+.formContainer form input {
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 5px;
+  height: 40px;
+  border: 2px solid #003be5;
+}
+
+.formContainer form button {
+  width: 97%;
+  margin-top: 5px;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.formContainer img {
+  margin-bottom: 20px;
+}
