@@ -83,7 +83,11 @@ class WalletForm extends Component {
       tag: aliment,
     });
     const formBG = document.querySelector('.formBG');
-    formBG.style.background = 'rgba(225, 229, 235, 0.49)';
+    
+      
+   
+      formBG.style.background = 'rgba(225, 229, 235, 0.49)';
+    
   };
 
   render() {

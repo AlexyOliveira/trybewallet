@@ -10,7 +10,7 @@ class Table extends Component {
   };
 
   idFromItenEdit = (id) => {
-    const { dispatch } = this.props;
+    const { dispatch, edit } = this.props;
     this.setState(
       {
         ItenEdit: id,
@@ -21,7 +21,11 @@ class Table extends Component {
       },
     );
     const formBG = document.querySelector('.formBG');
-    formBG.style.background = '#00ffa2';
+    if (edit) {
+      formBG.style.background = 'rgba(225, 229, 235, 0.49)';
+    } else {
+      formBG.style.background = '#00ffa2';
+    }
   };
 
   findCoinName = (expense) => {
@@ -86,9 +90,9 @@ class Table extends Component {
                           type="button"
                           data-testid="edit-btn"
                         >
-<a id="editLink" href="#topo">
-                          Editar
-</a>
+                           <a id="editLink" href="#topo">
+                            Editar
+                           </a>
                         </button>
                       
                       <button
@@ -116,6 +120,7 @@ Table.propTypes = {
 
 const mapStateToProps = (globalState) => ({
   expenses: globalState.wallet.expenses,
+  edit: globalState.wallet.edit
 });
 
 export default connect(mapStateToProps)(Table);
