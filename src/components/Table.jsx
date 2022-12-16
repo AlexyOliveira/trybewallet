@@ -23,7 +23,7 @@ class Table extends Component {
     const formBG = document.querySelector('.formBG');
     if (edit) {
       formBG.style.background = 'rgba(225, 229, 235, 0.49)';
-    } else {
+    } else if (!edit){
       formBG.style.background = '#00ffa2';
     }
   };
