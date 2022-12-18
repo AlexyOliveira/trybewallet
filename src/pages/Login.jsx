@@ -58,7 +58,7 @@ class Login extends Component {
             <input
               onChange={ this.handleChange }
               data-testid="password-input"
-              placeholder="insira uma senha qualquer"
+              placeholder="insira uma senha qualquer de 6 dígitos"
               type="password"
               name="password"
             />
