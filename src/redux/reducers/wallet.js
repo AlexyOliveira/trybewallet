@@ -13,6 +13,7 @@ const INITIAL_STATE = {
   expensetosum: [],
   edit: false,
   editId: 0,
+  loading: true,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -49,6 +50,13 @@ const wallet = (state = INITIAL_STATE, action) => {
         .map((expense) => (expense.id === state.editId ? action.payload : expense)),
       edit: !state.edit,
     };
+    
+    case 'LOADING_DONE':
+      return {
+        ...state,
+        loading: false,
+      }
+
   default:
     return state;
   }

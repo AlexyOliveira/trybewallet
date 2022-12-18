@@ -60,7 +60,7 @@ export const fetchCurrencies = () => async (dispatch) => {
   try {
     // 2 Fazer a requisição
     const response = await getCurrencyApi();
-
+    dispatch({type: 'LOADING_DONE'})
     // 3.1 Avisar que a requisição foi um sucesso e entregar a resposta
 
     dispatch(responseCurrenciesSuccess(response));
@@ -79,12 +79,13 @@ export const requestFullCurrencies = (response) => ({
 
 export const fetchFullCurrencies = () => async (dispatch) => {
   // 1 Avisar que o fetch vai começar
+  
   dispatch(requestCurrencies());
 
   try {
     // 2 Fazer a requisição
     const response = await getFullCurrencyApi();
-
+   
     // 3.1 Avisar que a requisição foi um sucesso e entregar a resposta
 
     dispatch(requestFullCurrencies(response));

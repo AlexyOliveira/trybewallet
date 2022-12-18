@@ -7,12 +7,10 @@ import { deleteFromList, editFormMode } from '../redux/actions';
 class Table extends Component {
   state = {
     ItenEdit: 0,
-    edit: false,
   };
 
   idFromItenEdit = (id) => {
-    const { dispatch } = this.props;
-    const { edit } = this.state;
+    const { dispatch, edit } = this.props;
     this.setState(
       {
         ItenEdit: id,
@@ -22,10 +20,6 @@ class Table extends Component {
         dispatch(editFormMode({ payload: ItenEdit }));
       },
     );
-
-    this.setState({
-      edit: !edit,
-    })
     const formBG = document.querySelector('.formBG');
     if (edit) {
       formBG.style.background = 'rgba(225, 229, 235, 0.49)';
@@ -126,7 +120,7 @@ Table.propTypes = {
 
 const mapStateToProps = (globalState) => ({
   expenses: globalState.wallet.expenses,
-  
+  edit: globalState.wallet.edit,
 });
 
 export default connect(mapStateToProps)(Table);

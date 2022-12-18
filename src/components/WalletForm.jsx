@@ -83,15 +83,11 @@ class WalletForm extends Component {
       tag: aliment,
     });
     const formBG = document.querySelector('.formBG');
-    
-      
-   
       formBG.style.background = 'rgba(225, 229, 235, 0.49)';
-    
   };
 
   render() {
-    const { currencies, edit } = this.props;
+    const { currencies, edit, loading } = this.props;
     const { description, currency, value, method, tag } = this.state;
     return (
       <div className="walletFormMain">
@@ -123,6 +119,7 @@ class WalletForm extends Component {
             <label htmlFor="currency">
               Moeda
               <select
+                className={ loading ? "spinner-grow" : null}
                 onChange={ this.handleChange }
                 data-testid="currency-input"
                 name="currency"
@@ -194,6 +191,7 @@ const mapStateToProps = (globalState) => ({
   currencies: globalState.wallet.currencies,
   edit: globalState.wallet.edit,
   editId: globalState.wallet.editId,
+  loading: globalState.wallet.loading,
 });
 
 export default connect(mapStateToProps)(WalletForm);
