@@ -2,6 +2,7 @@
 body {
      background-color: #00ffa2;
   background-image: url("../images/foto\ fundo.png");
+  background-size: cover;
 }
 
 .mainContainer {

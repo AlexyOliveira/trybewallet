@@ -29,10 +29,13 @@ class WalletForm extends Component {
   };
 
   handleSubmit = async (event) => {
-    event.preventDefault();
+    const { id, value, description, currency, method, tag } = this.state;
+    if (value.length === 0 || description.length === 0) {
+      window.alert('Por favor digite um valor e uma descrição!')
+    } else {
+      event.preventDefault();
     const currencyAPI = await getFullCurrencyApi();
     const { dispatch } = this.props;
-    const { id, value, description, currency, method, tag } = this.state;
     dispatch(
       saveForm({
         id,
@@ -48,6 +51,9 @@ class WalletForm extends Component {
       id: id + 1,
     });
     this.handleReset();
+    }
+    
+    
   };
 
   handleReset = () => {
@@ -61,9 +67,13 @@ class WalletForm extends Component {
   };
 
   editInfos = async () => {
+
     const { dispatch, editId } = this.props;
     const { value, description, currency, method, tag } = this.state;
-    const currencyAPI = await getFullCurrencyApi();
+    if (value.length === 0 || description.length === 0) {
+      window.alert('Por favor digite um valor e uma descrição!')
+    } else {
+      const currencyAPI = await getFullCurrencyApi();
     dispatch(
       saveEdited({
         id: editId,
@@ -84,6 +94,8 @@ class WalletForm extends Component {
     });
     const formBG = document.querySelector('.formBG');
       formBG.style.background = 'rgba(225, 229, 235, 0.49)';
+    }
+    
   };
 
   render() {
