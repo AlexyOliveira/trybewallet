@@ -32,7 +32,8 @@ class WalletForm extends Component {
     const { id, value, description, currency, method, tag } = this.state;
     if (value.length === 0 || description.length === 0) {
       window.alert('Por favor digite um valor e uma descrição!')
-    } else {
+    } 
+    else {
       event.preventDefault();
     const currencyAPI = await getFullCurrencyApi();
     const { dispatch } = this.props;
@@ -52,8 +53,6 @@ class WalletForm extends Component {
     });
     this.handleReset();
     }
-    
-    
   };
 
   handleReset = () => {
@@ -103,7 +102,7 @@ class WalletForm extends Component {
     const { description, currency, value, method, tag } = this.state;
     return (
       <div className="walletFormMain">
-        <form onSubmit={ this.handleSubmit }>
+        <form>
           <div className="formBG">
             <label htmlFor="number">
               Valor
@@ -185,7 +184,7 @@ class WalletForm extends Component {
               Salvar edição
             </button>
           ) : (
-            <button className="btn btn-warning addexpense" type="submit">
+            <button onClick={ this.handleSubmit } className="btn btn-warning addexpense" type="button">
               Adicionar despesa
             </button>
           )}

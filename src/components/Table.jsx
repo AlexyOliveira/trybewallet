@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
-import './table.css';
-import { deleteFromList, editFormMode } from '../redux/actions';
+import React, { Component } from "react";
+import Proptypes from "prop-types";
+import { connect } from "react-redux";
+import "./table.css";
+import { deleteFromList, editFormMode } from "../redux/actions";
 
 class Table extends Component {
   state = {
@@ -18,26 +18,26 @@ class Table extends Component {
       () => {
         const { ItenEdit } = this.state;
         dispatch(editFormMode({ payload: ItenEdit }));
-      },
+      }
     );
-    const formBG = document.querySelector('.formBG');
+    const formBG = document.querySelector(".formBG");
     if (edit) {
-      formBG.style.background = 'rgba(225, 229, 235, 0.49)';
-    } else if (!edit){
-      formBG.style.background = '#00ffa2';
+      formBG.style.background = "rgba(225, 229, 235, 0.49)";
+    } else if (!edit) {
+      formBG.style.background = "#00ffa2";
     }
   };
 
   findCoinName = (expense) => {
     const name = Object.values(expense.exchangeRates).filter(
-      (each) => each.code === expense.currency,
+      (each) => each.code === expense.currency
     );
     return name[0].name;
   };
 
   exchangeUsed = (expense) => {
     const exchange = Object.values(expense.exchangeRates).filter(
-      (a) => a.code === expense.currency,
+      (a) => a.code === expense.currency
     )[0].ask;
 
     return Number(exchange).toFixed(2);
@@ -52,7 +52,9 @@ class Table extends Component {
           <div className="tableBox">
             <thead>
               <tr className="tr1">
-                <th className="ll" scope="col">Descrição</th>
+                <th className="ll" scope="col">
+                  Descrição
+                </th>
                 <th scope="col">Tag</th>
                 <th scope="col">Método de pagamento</th>
                 <th scope="col">Valor</th>
@@ -67,45 +69,52 @@ class Table extends Component {
               {expenses.length < 1
                 ? null
                 : expenses.map((expense) => (
-                  <tr className="tr2" key={ expense.id }>
-                    <td>{expense.description}</td>
-                    <td>{expense.tag}</td>
-                    <td>{expense.method}</td>
-                    <td>{Number(expense.value).toFixed(2)}</td>
-                    <td>{this.findCoinName(expense)}</td>
-                    <td>{this.exchangeUsed(expense)}</td>
-                    <td>
-                      {(
-                        Object.values(expense.exchangeRates).filter(
-                          (a) => a.code === expense.currency,
-                        )[0].ask * expense.value
-                      ).toFixed(2)}
-                    </td>
-                    <td>Real</td>
-                    <td>
-                      
+                    <tr className="tr2" key={expense.id}>
+                      <td>{expense.description}</td>
+                      <td>{expense.tag}</td>
+                      <td>{expense.method}</td>
+                      <td>{Number(expense.value).toFixed(2)}</td>
+                      <td>{this.findCoinName(expense)}</td>
+                      <td>{this.exchangeUsed(expense)}</td>
+                      <td>
+                        {(
+                          Object.values(expense.exchangeRates).filter(
+                            (a) => a.code === expense.currency
+                          )[0].ask * expense.value
+                        ).toFixed(2)}
+                      </td>
+                      <td>Real</td>
+                      <td>
                         <button
                           className="btn btn-warning btn-sm"
-                          onClick={ () => this.idFromItenEdit(expense.id) }
+                          onClick={() => this.idFromItenEdit(expense.id)}
                           type="button"
                           data-testid="edit-btn"
                         >
-                           <a id="editLink" href="#topo">
+                          <a id="editLink" href="#topo">
                             Editar
-                           </a>
+                          </a>
                         </button>
-                      
-                      <button
-                        className="btn btn-danger btn-sm"
-                        onClick={ () => dispatch(deleteFromList(expense.id)) }
-                        type="button"
-                        data-testid="delete-btn"
-                      >
-                        Excluir
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => {
+                            dispatch(
+                              deleteFromList(expense.id),
+                              dispatch(editFormMode(false))
+                            );
+                            const formBG = document.querySelector(".formBG");
+                            formBG.style.background =
+                              "rgba(225, 229, 235, 0.49)";
+                          }}
+                          type="button"
+                          data-testid="delete-btn"
+                        >
+                          Excluir
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
             </tbody>
           </div>
         </table>
