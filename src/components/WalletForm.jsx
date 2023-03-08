@@ -23,10 +23,20 @@ class WalletForm extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  const { name, value } = event.target;
+
+  if (name === "description") {
+    if (value.length <= 40) {
+      this.setState({ [name]: value });
+    } else {
+      this.setState({ [name]: value.substring(0, 40) }, () =>
+        alert("Sua descrição deve ter no máximo 40 caracteres.")
+      );
+    }
+  } else {
+    this.setState({ [name]: value });
+  }
+};
 
   handleSubmit = async (event) => {
     const { id, value, description, currency, method, tag } = this.state;
